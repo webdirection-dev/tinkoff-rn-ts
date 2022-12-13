@@ -1,6 +1,6 @@
-import Navigation from "./app/navigation/Navigation"
+import Navigation from "./app/layout/Navigation"
 import {Provider} from "react-redux"
-import {store} from "./store";
+import {store} from "./app/store"
 import {LogBox} from "react-native"
 
 export default function App() {

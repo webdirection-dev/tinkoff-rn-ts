@@ -1,6 +1,6 @@
 import {useDispatch, useSelector, TypedUseSelectorHook} from "react-redux"
 import {configureStore} from "@reduxjs/toolkit"
-import {rootReducer} from './app/features'
+import {rootReducer} from './features'
 import axios, {AxiosStatic,  AxiosInstance} from 'axios'
 
 export const axiosInstance = axios.create({

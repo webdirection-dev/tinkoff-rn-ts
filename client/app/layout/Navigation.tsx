@@ -1,10 +1,7 @@
-import {createNativeStackNavigator} from "@react-navigation/native-stack"
-import {NavigationContainer} from "@react-navigation/native"
-
-import {useAppSelector} from "../../store"
+import {useAppSelector} from "../store"
 import {selectAuthInfo} from "../features/auth/auth-slice"
 
-import Auth from  '../screens/auth/Auth'
+import Auth from '../features/auth/Auth'
 import Home from "../screens/home/Home"
 import Profile from "../screens/profile/Profile"
 import Payments from "../screens/payments/Payments"
@@ -12,6 +9,8 @@ import More from "../screens/more/More"
 import Services from "../screens/services/services"
 import Support from "../screens/support/Support"
 
+import {NavigationContainer} from "@react-navigation/native"
+import {createNativeStackNavigator} from "@react-navigation/native-stack"
 const Stack = createNativeStackNavigator()
 
 const Navigation = () => {
