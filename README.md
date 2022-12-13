@@ -1,0 +1,2 @@
+# tinkoff-rn-ts
+ 
