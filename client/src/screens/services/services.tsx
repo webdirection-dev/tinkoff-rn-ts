@@ -1,11 +1,11 @@
-import {Text, View} from "react-native"
+import {Text, SafeAreaView} from "react-native"
 
 const Services = () => {
 
     return(
-        <View>
+        <SafeAreaView>
             <Text>Services</Text>
-        </View>
+        </SafeAreaView>
     )
 }
 

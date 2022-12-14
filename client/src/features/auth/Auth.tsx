@@ -1,13 +1,13 @@
-import {Text, View} from "react-native"
+import {Text, SafeAreaView} from "react-native"
 import {useAppTailwind, styleCenter} from "../../static/styles/style"
 
 const Auth = () => {
     const style = useAppTailwind()(styleCenter)
 
     return(
-        <View style={style}>
+        <SafeAreaView style={style}>
             <Text>Auth Auth</Text>
-        </View>
+        </SafeAreaView>
     )
 }
 
