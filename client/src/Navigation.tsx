@@ -1,6 +1,3 @@
-import {useAppSelector} from "./store"
-import {selectAuthInfo} from "./features/auth/auth-slice"
-
 import Auth from './features/auth/Auth'
 import Home from "./screens/home/Home"
 import Profile from "./screens/profile/Profile"
@@ -14,7 +11,7 @@ import {createNativeStackNavigator} from "@react-navigation/native-stack"
 const Stack = createNativeStackNavigator()
 
 const Navigation = () => {
-    const {auth} = useAppSelector(store => selectAuthInfo(store))
+    const auth = false
 
     return(
         <NavigationContainer>

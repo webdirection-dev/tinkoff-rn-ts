@@ -1,5 +1,7 @@
-import {useTailwind} from "tailwind-rn"
+import {bgGeneral} from "./var"
+import {TStyles} from "../types/types"
 
+//SHADOW
 export const BOX_SHADOW = {
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
@@ -8,5 +10,16 @@ export const BOX_SHADOW = {
     elevation: 5,
 }
 
-export const useAppTailwind = useTailwind
-export const styleCenter = 'h-full w-full bg-white pt-16'
+export const containerShadow = {
+    shadowColor: 'black',
+    shadowOffset: {width: 5, height: 5},
+    shadowOpacity: .2,
+    elevation: 3,
+    backgroundColor: bgGeneral,
+}
+
+//POSITION
+export const centerItem = {
+    justifyContent: 'center',
+    alignItems: "center",
+} as TStyles
