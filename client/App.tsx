@@ -1,16 +1,13 @@
 import {StatusBar} from "expo-status-bar"
 import {Provider} from "react-redux"
 import {store} from "./src/store"
-import Navigation from "./src/layout/Navigation"
+import Navigation from "./src/Navigation"
 
-export default function App() {
-    return (
-        <Provider store={store}>
-            <StatusBar style={"auto"}/>
-            <Navigation />
-        </Provider>
-    )
-}
+const App = () => (
+    <Provider store={store}>
+        <StatusBar style={"auto"}/>
+        <Navigation />
+    </Provider>
+)
 
-//отключить логи
-// LogBox.ignoreAllLogs()
+export default App

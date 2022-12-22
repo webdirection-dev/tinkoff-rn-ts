@@ -5,7 +5,9 @@ api/.env
 
 client/node_modules/
 client/.expo/
+client/.env
 client/dist/
+
 npm-debug.*
 *.jks
 *.p8
