@@ -1,14 +1,13 @@
 import {FC, ReactNode} from "react"
 import {ScrollView, SafeAreaView} from "react-native"
-import {useAppTailwind, styleCenter} from "../static/styles/style"
+import {stylesMain} from "./style"
 
 interface IMain {children: ReactNode; isScrollView?: boolean}
 
 const Main: FC<IMain> = ({children, isScrollView = true}) => {
-    const style = useAppTailwind()(styleCenter)
-
+    const {container} = stylesMain
     return(
-        <SafeAreaView style={style}>
+        <SafeAreaView style={container}>
             { isScrollView ? <ScrollView>{children}</ScrollView> : children }
         </SafeAreaView>
     )

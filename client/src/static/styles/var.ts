@@ -1,16 +1,12 @@
-import {TStyles} from "../types/types"
-
-//FONT
-export const fontSize = {
-    h1: 40,
-    h2: 35,
-} as TStyles
-
+import {TObjStringNumber} from "../types/types"
 //COLOR
-export const generalColor = '#fec3d7'
-export const bgGeneral = 'white'
 export const colorActive = 'rgb(241, 186, 87)'
-export const bgColor = {
-    red: 'red',
-    green: 'green',
-} as TStyles
+export const gray800 = '#424242'
+export const gray100 = '#F5F5F5'
+export const yellow500 = '#FFEB3B'
+
+export const colorLoader = '#3b82f6'
+
+//BACKGROUND
+export const bgGeneral = 'white'
+export const bgRed = 'red'

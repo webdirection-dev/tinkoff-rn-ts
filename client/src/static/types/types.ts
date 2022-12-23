@@ -1,8 +1,19 @@
-export type TStyles = {[key: string]: string | number}
-export type TObj = {[key: string]: string | number}
+export type TObjString = {[key: string]: string}
+export type TObjStringNumber = {[key: string]: string | number}
 
 //RTK Query
 export interface IErrorUseQuery {
     status: number;
     data: {error: {[key: string]: string}};
+}
+
+//NAVIGATION
+export type TypeRootStackParamList = {
+    Auth: undefined;
+    Home: undefined;
+    Profile: undefined;
+    Services: undefined;
+    Support: undefined;
+    Payments: undefined;
+    More: undefined;
 }
