@@ -1,7 +1,8 @@
 import {useEffect, useState} from "react"
 import {useAppDispatch} from "../../store"
 import {setOwner} from "./auth-slice"
-import {useCreateUserMutation, useLoginUserMutation} from "./auth-api"
+import {useLoginUserMutation} from "./auth-api"
+import {useCreateUserMutation} from "../users/users-api"
 
 const initialCredentials = {username: '', password: ''}
 const initialError = {status: '', code: '', description: ''}
@@ -16,8 +17,8 @@ export const useAuth = () => {
     const [credentials, setCredentials] = useState(initialCredentials)
     const [message, setMessage] = useState('')
 
-    const [loginUser, {isError: isErrLogin, error: errLogin, isSuccess: successLogin, data}] = useLoginUserMutation()
-    const [registerUser, {isError: isErrRegister, error: errRegister, isSuccess: successRegister}] = useCreateUserMutation()
+    const [loginUser, {error: errLogin, isSuccess: successLogin, data: owner}] = useLoginUserMutation()
+    const [registerUser, {error: errRegister, isSuccess: successRegister, data: user}] = useCreateUserMutation()
 
     const handleCredentials = (name, value) => {
         setCredentials({...credentials, [name]: value})
@@ -52,12 +53,6 @@ export const useAuth = () => {
         if (!isRegister && successLogin) setIsLoading(false)
         if (isRegister && successRegister) setIsLoading(false)
     }, [isRegister, successLogin, successRegister])
-
-    //SET OWNER
-    useEffect(() => {
-        if (data) dispatch(setOwner(data))
-    }, [data])
-
     //ERRORS
     useEffect(() => {
         if (errLogin) {
@@ -84,6 +79,16 @@ export const useAuth = () => {
             })
         }
     }, [errLogin, errRegister])
+
+    //ADD OWNER TO STORE
+    useEffect(() => {
+        if (owner) dispatch(setOwner(owner))
+    }, [owner])
+
+    //ADD USERS TO STORE
+    useEffect(() => {
+        if (user) dispatch(setOwner(user))
+    }, [user])
 
     return {isRegister, handleRegister, isLoading, isError, error, credentials, handleCredentials, handleAuth, message}
 }

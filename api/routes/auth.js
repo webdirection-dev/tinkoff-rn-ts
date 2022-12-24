@@ -16,7 +16,14 @@ router.post(
 
         try {
             const savedUser = await newUser.save()
-            res.status(201).json(savedUser)
+
+            const accessToken = jwt.sign(
+                {id: savedUser._id, isAdmin: savedUser.isAdmin},
+                process.env.JWT_SECRET,
+                {expiresIn: '3d'}
+            )
+
+            res.status(201).json({...savedUser._doc, accessToken})
         } catch (err) { res.status(500).json(err) }
     }
 )
