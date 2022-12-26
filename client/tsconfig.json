@@ -4,6 +4,6 @@
   "include": [
     "src",
     "./src/static/configs/custom.d.ts",
-    "./src/navigation/navigation.d.ts",
+      "./src/static/configs/navigation.d.ts"
   ]
 }

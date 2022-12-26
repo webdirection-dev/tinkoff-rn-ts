@@ -1,5 +1,5 @@
 import {bgGeneral} from "./var"
-import {TStyles} from "../types/types"
+import {TObjStringNumber} from "../types/types"
 
 //SHADOW
 export const BOX_SHADOW = {
@@ -10,6 +10,8 @@ export const BOX_SHADOW = {
     elevation: 5,
 }
 
+
+//CONTAINERS
 export const containerShadow = {
     shadowColor: 'black',
     shadowOffset: {width: 5, height: 5},
@@ -22,4 +24,4 @@ export const containerShadow = {
 export const centerItem = {
     justifyContent: 'center',
     alignItems: "center",
-} as TStyles
+} as TObjStringNumber

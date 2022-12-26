@@ -48,5 +48,4 @@ const Auth = () => {
         </SafeAreaView>
     )
 }
-
 export default Auth

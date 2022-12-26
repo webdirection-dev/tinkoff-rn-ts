@@ -1,20 +1,21 @@
 import {NavigationContainer} from "@react-navigation/native"
 import {createNativeStackNavigator} from "@react-navigation/native-stack"
-import {useAppSelector} from "../store"
-import {selectOwnerInfo} from "../features/auth/auth-slice"
+import {useAppSelector} from "./store"
+import {selectOwnerInfo} from "./features/auth/auth-slice"
 
-import Auth from '../features/auth/Auth'
-import Home from "../screens/home/Home"
-import Profile from "../screens/profile/Profile"
-import Payments from "../screens/payments/Payments"
-import More from "../screens/more/More"
-import Services from "../screens/services/services"
-import Support from "../screens/support/Support"
+import Auth from './features/auth/Auth'
+import Home from "./screens/home/Home"
+import Profile from "./screens/profile/Profile"
+import Payments from "./screens/payments/Payments"
+import More from "./screens/more/More"
+import Services from "./screens/services/services"
+import Support from "./screens/support/Support"
 
 const Stack = createNativeStackNavigator()
 
 const Navigation = () => {
-    const {auth} = useAppSelector(store => selectOwnerInfo(store))
+    // const {auth} = useAppSelector(store => selectOwnerInfo(store))
+    const auth = true
 
     return(
         <NavigationContainer>
@@ -35,5 +36,4 @@ const Navigation = () => {
         </NavigationContainer>
     )
 }
-
 export default Navigation
