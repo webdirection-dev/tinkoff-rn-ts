@@ -14,8 +14,8 @@ import Support from "./screens/support/Support"
 const Stack = createNativeStackNavigator()
 
 const Navigation = () => {
-    // const {auth} = useAppSelector(store => selectOwnerInfo(store))
-    const auth = true
+    const {auth} = useAppSelector(store => selectOwnerInfo(store))
+    // const auth = true
 
     return(
         <NavigationContainer>

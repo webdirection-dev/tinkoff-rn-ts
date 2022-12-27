@@ -4,16 +4,16 @@ import {stylesButton} from "./style"
 import {yellow500} from "../../static/styles/var"
 
 interface IButtonProps {
-    handleAuth: () => void;
+    handleClick: () => void;
     title: string;
     color?: string[];
 }
 
-const ButtonCustom: FC<IButtonProps> = ({handleAuth, title, color = [yellow500, '#FBBF24']}) => {
+const ButtonCustom: FC<IButtonProps> = ({handleClick, title, color = [yellow500, '#FBBF24']}) => {
     const {button} = stylesButton
 
     return (
-        <TouchableHighlight onPress={handleAuth} underlayColor={color[1]} style={{...button, backgroundColor: color[0]}} >
+        <TouchableHighlight onPress={handleClick} underlayColor={color[1]} style={{...button, backgroundColor: color[0]}} >
             <Text style={{textAlign: 'center'}}>{title}</Text>
         </TouchableHighlight>
     )

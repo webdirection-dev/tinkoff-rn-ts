@@ -1,8 +1,7 @@
 import {useEffect, useState} from "react"
 import {useAppDispatch} from "../../store"
 import {setOwner} from "./auth-slice"
-import {useLoginUserMutation} from "./auth-api"
-import {useCreateUserMutation} from "../users/users-api"
+import {useLoginUserMutation, useCreateUserMutation} from "../users/users-api"
 
 const initialCredentials = {username: '', password: ''}
 const initialError = {status: '', code: '', description: ''}

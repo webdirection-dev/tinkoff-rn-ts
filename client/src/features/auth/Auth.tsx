@@ -21,18 +21,18 @@ const Auth = () => {
                             name='username'
                             value={credentials.username}
                             placeholder='Enter username'
-                            handleCredentials={handleCredentials}
+                            handleChange={handleCredentials}
                         />
 
                         <Field
                             name='password'
                             value={credentials.password}
                             placeholder='Enter password'
-                            handleCredentials={handleCredentials}
+                            handleChange={handleCredentials}
                             isSecure={true}
                         />
 
-                        <ButtonCustom handleAuth={handleAuth} title={'Let\'s go'}/>
+                        <ButtonCustom handleClick={handleAuth} title={'Let\'s go'}/>
 
                         <Pressable onPress={handleRegister}>
                             <Text style={switches}>{!isRegister ? 'Register' : 'Login'}</Text>

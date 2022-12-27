@@ -1,17 +1,28 @@
-import {Text, SafeAreaView, View} from "react-native"
+import {SafeAreaView, View, TouchableOpacity, Text} from "react-native"
+import {useNavigation} from "@react-navigation/native"
 import {styles} from "./style"
+import {Entypo} from '@expo/vector-icons'
+import {useHome} from "./use-home"
+
+import Main from "../../layout/main/Main"
 import Avatar from "../../components/avatar/Avatar"
 
 const Home = () => {
-    const {header} = styles
+    const {navigate} = useNavigation()
+    const {header, btn, title, icon} = styles
+    const {owner} = useHome()
 
     return(
-        <SafeAreaView>
+        <Main>
             <View style={header}>
-                <Avatar name='Test' isSmall={true}/>
-            </View>
+                <Avatar username={owner.username} isSmall={true}/>
 
-        </SafeAreaView>
+                <TouchableOpacity style={btn} onPress={() => navigate('Profile', {owner} as never) }>
+                    <Text style={title}>{owner.username}</Text>
+                    <Entypo name={'chevron-small-right'} size={28} style={icon}/>
+                </TouchableOpacity>
+            </View>
+        </Main>
     )
 }
 export default Home

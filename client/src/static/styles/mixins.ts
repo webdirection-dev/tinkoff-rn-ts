@@ -1,4 +1,5 @@
 import {TObjStringNumber} from "../types/types"
+import {gray800} from "./var"
 
 //FONT
 export const h1 = {
@@ -7,7 +8,9 @@ export const h1 = {
 } as TObjStringNumber
 
 export const h2 = {
-    fontSize: 35
+    fontSize: 30,
+    fontWeight: '700',
+    color: gray800,
 } as TObjStringNumber
 
 export const h3 = {
@@ -21,4 +24,8 @@ export const generalContainer = {
     width: '100%',
     backgroundColor: 'white',
     paddingTop: 16,
+}
+
+export const wrapper = {
+    paddingHorizontal: 20
 }

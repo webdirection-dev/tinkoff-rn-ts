@@ -6,10 +6,10 @@ interface IFieldProps {
     name: string;
     value: string;
     placeholder: string;
-    handleCredentials: (name: string, value: string) => void;
+    handleChange: (name: string, value: string) => void;
     isSecure?: boolean;
 }
-const Field: FC<IFieldProps> = ({name, value, placeholder, handleCredentials, isSecure}) => {
+const Field: FC<IFieldProps> = ({name, value, placeholder, handleChange, isSecure}) => {
     const {input} = stylesField
 
     return(
@@ -17,7 +17,7 @@ const Field: FC<IFieldProps> = ({name, value, placeholder, handleCredentials, is
             style={input}
             value={value}
             placeholder={placeholder}
-            onChangeText={value => handleCredentials(name, value)}
+            onChangeText={value => handleChange(name, value)}
             secureTextEntry={isSecure}
             autoCapitalize="none"
             showSoftInputOnFocus={false}
