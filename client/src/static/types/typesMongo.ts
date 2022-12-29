@@ -9,3 +9,9 @@ export interface IUser {
     accessToken?: string;
     status: string;
 }
+
+export interface IStory {
+    _id: string;
+    title: string;
+    images: string[];
+}

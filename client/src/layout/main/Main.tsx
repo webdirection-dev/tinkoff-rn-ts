@@ -12,5 +12,4 @@ const Main: FC<IMain> = ({children, isScrollView = true}) => {
         </SafeAreaView>
     )
 }
-
 export default Main

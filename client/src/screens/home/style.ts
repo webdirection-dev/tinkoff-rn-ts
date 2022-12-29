@@ -1,11 +1,12 @@
 import {StyleSheet} from "react-native"
 import {gray800} from "../../static/styles/var"
+import {wrapper} from "../../static/styles/mixins"
 
-export const styles = StyleSheet.create({
+const style = StyleSheet.create({
     header: {
+        ...wrapper,
         flexDirection: "row",
         alignItems: "center",
-        paddingHorizontal: 20,
     },
     btn: {
         flexDirection: "row",
@@ -19,5 +20,21 @@ export const styles = StyleSheet.create({
     },
     icon: {
         color: gray800,
+    },
+    main: {
+        ...wrapper,
     }
 })
+
+export const styles = {
+    header: {
+        container: style.header,
+        btn: style.btn,
+        title: style.title,
+        icon: style.icon,
+    },
+
+    main: {
+        container: style.main,
+    },
+}
