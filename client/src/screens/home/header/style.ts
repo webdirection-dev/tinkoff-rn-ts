@@ -1,6 +1,6 @@
 import {StyleSheet} from "react-native"
-import {gray800} from "../../static/styles/var"
-import {wrapper} from "../../static/styles/mixins"
+import {gray800} from "../../../static/styles/var"
+import {wrapper} from "../../../static/styles/mixins"
 
 const style = StyleSheet.create({
     header: {
@@ -20,9 +20,6 @@ const style = StyleSheet.create({
     },
     icon: {
         color: gray800,
-    },
-    main: {
-        ...wrapper,
     }
 })
 
@@ -32,9 +29,5 @@ export const styles = {
         btn: style.btn,
         title: style.title,
         icon: style.icon,
-    },
-
-    main: {
-        container: style.main,
-    },
+    }
 }

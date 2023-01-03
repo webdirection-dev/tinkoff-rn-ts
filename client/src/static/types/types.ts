@@ -17,3 +17,6 @@ export type TypeRootStackParamList = {
     Payments: undefined;
     More: undefined;
 }
+
+export type TCurrency = 'RUB' | 'USD'
+export type TCardName = 'Tinkoff Black' | 'Tinkoff All Airlines'

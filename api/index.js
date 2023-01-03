@@ -11,10 +11,7 @@ dotenv.config()
 
 const authRoot = require('./routes/auth')
 const userRoot = require('./routes/users')
-// const productRoot = require('./routes/product')
-// const cartRoot = require('./routes/cart')
-// const orderRoot = require('./routes/order')
-// const stripeRoot = require('./routes/stripe')
+const creditCards = require('./routes/creditCards')
 
 // console.log('test')
 
@@ -27,9 +24,6 @@ mongoose
 app.use(express.json())
 app.use('/api/auth', authRoot)
 app.use('/api/users', userRoot)
-// app.use('/api/products', productRoot)
-// app.use('/api/cart', cartRoot)
-// app.use('/api/orders', orderRoot)
-// app.use('/api/checkout', stripeRoot)
+app.use('/api/cards', creditCards)
 
 app.listen(process.env.PORT || 8008, () => {console.log('Backend Server Is Running!')})

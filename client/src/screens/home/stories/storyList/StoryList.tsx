@@ -1,6 +1,6 @@
 import {FlatList, View} from "react-native"
 import {styles} from "./style"
-import {dbStories} from "../../static/db/dbStories"
+import {dbStories} from "../../../../static/db/dbStories"
 
 import StoryPreview from "../storyPreview/StoryPreview"
 

@@ -1,5 +1,5 @@
-import {useAppDispatch} from "../../store"
-import {setStory} from "../../features/storyBoarding/story-boarding-slice"
+import {useAppDispatch} from "../../../../store"
+import {setStory} from "../../../../features/storyBoarding/story-boarding-slice"
 
 export const useStoryPreview = () => {
     const dispatch = useAppDispatch()

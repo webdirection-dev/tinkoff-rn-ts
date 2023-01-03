@@ -2,7 +2,7 @@ import {FC} from "react"
 import {View, Pressable, ImageBackground, Text} from "react-native"
 import {styles} from "./style"
 import {useStoryPreview} from "./use-story-preview"
-import {IStory} from "../../static/types/typesMongo"
+import {IStory} from "../../../../static/types/typesMongo"
 
 const StoryPreview: FC<{item: IStory, index: number}> = ({item, index}) => {
     const {main} = styles

@@ -1,5 +1,5 @@
 import {StyleSheet} from "react-native"
-import {blue400} from "../../static/styles/var"
+import {blue400} from "../../../../static/styles/var"
 
 const style = StyleSheet.create({
     container: {

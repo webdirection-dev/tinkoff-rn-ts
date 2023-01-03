@@ -4,7 +4,7 @@ import {useAppSelector} from "./store"
 import {selectOwnerInfo} from "./features/auth/auth-slice"
 
 import Auth from './features/auth/Auth'
-import Home from "./screens/home/Home"
+import Home from "./screens/home/_index/Home"
 import Profile from "./screens/profile/Profile"
 import Payments from "./screens/payments/Payments"
 import More from "./screens/more/More"
@@ -14,8 +14,7 @@ import Support from "./screens/support/Support"
 const Stack = createNativeStackNavigator()
 
 const Navigation = () => {
-    // const {auth} = useAppSelector(store => selectOwnerInfo(store))
-    const auth = true
+    const {auth} = useAppSelector(store => selectOwnerInfo(store))
 
     return(
         <NavigationContainer>
