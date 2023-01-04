@@ -6,6 +6,8 @@ import {useAppDispatch, useAppSelector} from "../../store"
 import {cleanOwner, setOwner, selectOwnerInfo} from "../../features/auth/auth-slice"
 import {gray300} from "../../static/styles/var"
 
+import {defaultAlert} from "../../static/helpers"
+
 export const useProfile = () => {
     const dispatch = useAppDispatch()
     const {owner} = useAppSelector(store => selectOwnerInfo(store))
@@ -33,22 +35,13 @@ export const useProfile = () => {
 
     //ALERTING SUCCESS
     useEffect(() => {
-        isSuccess && Alert.alert(
-            "Success!",
-            "Username has been changed.",
-            [ {text: "Cancel", onPress: () => {}} ]
-        )
+        isSuccess && defaultAlert('Success!', 'Username has been changed.')
     }, [isSuccess])
     //ALERTING ERROR
     useEffect(() => {
         if (updateError) {
             const {originalStatus, status, error, data} = updateError as any
-
-            Alert.alert(
-                "ERROR!",
-                `${originalStatus}: ${status} \n${error || data}`,
-                [ {text: "Cancel", onPress: () => {}} ]
-            )
+            isSuccess && defaultAlert('ERROR!', `${originalStatus}: ${status} \n${error || data}`)
         }
     }, [updateError])
 
