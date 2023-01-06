@@ -12,22 +12,13 @@ const style = StyleSheet.create({
         flexDirection: "row",
         alignItems: 'center',
     },
-    title: {
-        fontSize: 24,
-        fontWeight: 'bold',
-        color: gray800,
-        textTransform: "capitalize"
-    },
-    icon: {
-        color: gray800,
-    }
+    icon: {color: gray800},
 })
 
 export const styles = {
     header: {
         container: style.header,
         btn: style.btn,
-        title: style.title,
         icon: style.icon,
     }
 }

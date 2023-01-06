@@ -18,6 +18,6 @@ export const defaultAlert = (title, message, btnTitle = 'OK') => Alert.alert(tit
 export const promiseChoosingCreditCard = ({title, message, btnTxt}) => new Promise((resolve, reject) => {
     Alert.alert(title, message, [
             {text: btnTxt.titleLeft, onPress: () => {resolve(btnTxt.txtOutLeft)}},
-            {text: btnTxt.titleRight, onPress: () => {resolve(btnTxt.titleRight)}},
+            {text: btnTxt.titleRight, onPress: () => {resolve(btnTxt.txtOutRight)}},
         ], {cancelable: false})
 })

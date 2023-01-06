@@ -1,7 +1,14 @@
 import {TObjStringNumber} from "../types/types"
-import {colorGrayMain} from "./var"
+import {colorGrayMain, gray800} from "./var"
 
 //FONT
+export const title1 = {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: gray800,
+    textTransform: "capitalize"
+} as TObjStringNumber
+
 export const h1 = {
     fontSize: 40,
     fontWeight: '700',

@@ -19,7 +19,10 @@ const CreditCardsList = () => {
                             data.map((i, index) => (
                                 <View
                                     key={i._id}
-                                    style={{...card, borderBottomWidth: (index === data.length - 1 ? 0 : 2) }}
+                                    style={{
+                                        ...card,
+                                        borderBottomWidth: (index === data.length - 1 ? 0 : 2)
+                                }}
                                 ><CreditCard item={i}/></View>
                             )) : <Text>You don't have any cards</Text>
                     }

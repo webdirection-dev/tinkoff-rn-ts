@@ -1,3 +1,5 @@
+import {AntDesign} from '@expo/vector-icons'
+
 export type TObjString = {[key: string]: string}
 export type TObjStringNumber = {[key: string]: string | number}
 
@@ -17,6 +19,11 @@ export type TypeRootStackParamList = {
     Payments: undefined;
     More: undefined;
 }
+export interface IFooterItem {
+    iconName: keyof typeof AntDesign.glyphMap;
+    title: keyof TypeRootStackParamList
+}
 
 export type TCurrency = 'RUB' | 'USD'
 export type TCardName = 'Tinkoff Black' | 'Tinkoff All Airlines'
+
