@@ -28,3 +28,9 @@ export interface ICreditCard {
     cardNumber: string;
     balance?: number;
 }
+
+export interface IContact {
+    _id: string;
+    displayName: string;
+    cardNumber: string;
+}
