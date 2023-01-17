@@ -30,7 +30,16 @@ router.get('/', async (req, res) => {
     }
 )
 
-//GET CARDS
+//GET MY CARDS
+router.get('/my-cards/:id', async (req, res) => {
+        try {
+            const card  = await CreditCard.find({'userId': req.params.id})
+            res.status(200).json(card)
+        } catch (err) { res.status(500).json(err) }
+    }
+)
+
+//GET CARD
 router.get('/find/:id', async (req, res) => {
         try {
             const card  = await CreditCard.findById(req.params.id)

@@ -1,12 +1,19 @@
 import {FC} from "react"
 import {Text, Pressable} from "react-native"
-import {IContact} from "../../../static/types/typesMongo"
+import ImportantIcon from "./importantIcon"
+import {styles} from "./style"
+import {IImportantItem} from "../../../static/types/types"
 
-interface IContactItemProps {item: IContact, index: number}
+interface IContactItemProps {item: IImportantItem, index: number}
 
-const ImportantItem:FC<IContactItemProps> = ({item: {displayName}, index}) => (
-    <Pressable style={{marginRight: 20, alignItems: 'center', marginLeft: index === 0 ? 25 : 0}}>
-        <Text style={{marginTop: 10}}>{displayName}</Text>
-    </Pressable>
-)
+const ImportantItem:FC<IContactItemProps> = ({item: {title, iconName}, index}) => {
+    const {container, txt} = styles
+
+    return(
+        <Pressable style={{...container, marginLeft: index === 0 ? 25 : 0}}>
+            <ImportantIcon iconName={iconName}/>
+            <Text style={txt}>{title}</Text>
+        </Pressable>
+    )
+}
 export default ImportantItem

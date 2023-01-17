@@ -11,7 +11,7 @@ const ContactsList = () => {
     return(
         <View style={container}>
             {
-                contacts.length ? (
+                contacts && contacts.length ? (
                     <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
                         {contacts.map((i, index) => <ContactsItem key={i._id} item={i} index={index}/>)}
                     </ScrollView>

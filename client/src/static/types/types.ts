@@ -30,3 +30,7 @@ export interface IFooterItem {
 
 export type TCurrency = 'RUB' | 'USD'
 export type TCardName = 'Tinkoff Black' | 'Tinkoff All Airlines'
+
+//IMPORTANT
+export type TImportantIcon = Pick<IFooterItem, 'iconName'>
+export interface IImportantItem extends Pick<IFooterItem, 'iconName'> {title: string}

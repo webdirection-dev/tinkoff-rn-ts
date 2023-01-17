@@ -1,7 +1,7 @@
 import {useEffect} from "react"
 import {useAppSelector} from "../../../store"
 import {selectOwnerInfo} from "../../../features/auth/auth-slice"
-import {useGetAllCreditCardsQuery, useCreateCreditCardMutation} from "../../../features/creditCards/credit-cards-api"
+import {useGetMyCreditCardsQuery, useCreateCreditCardMutation} from "../../../features/creditCards/credit-cards-api"
 
 import {dbAlert} from "../../../static/db/dbAlerting"
 import {getRandomCardNumber, promiseChoosingCreditCard, defaultAlert} from "../../../static/helpers"
@@ -9,7 +9,7 @@ import {TCurrency, TCardName} from "../../../static/types/types"
 
 export const useCreditCardsList = () => {
     const {owner} = useAppSelector(store => selectOwnerInfo(store))
-    const {data, error: errorGetting} = useGetAllCreditCardsQuery()
+    const {data, error: errorGetting} = useGetMyCreditCardsQuery(owner._id)
     const [createCreditCard, {isSuccess, status: statusCreating, error: errorCreating}] = useCreateCreditCardMutation()
 
     const handleApply = async () => {

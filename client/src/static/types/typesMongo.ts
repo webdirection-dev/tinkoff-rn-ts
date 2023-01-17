@@ -31,6 +31,8 @@ export interface ICreditCard {
 
 export interface IContact {
     _id: string;
-    displayName: string;
+    username: string;
     cardNumber: string;
+    createdAt?: string;
+    updatedAt?: string;
 }

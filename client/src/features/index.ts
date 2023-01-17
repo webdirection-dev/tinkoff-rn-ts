@@ -4,6 +4,7 @@ import {usersReducer} from "./users/users-slice"
 import {storyBoardingReducer} from "./storyBoarding/story-boarding-slice"
 import {usersApi} from "./users/users-api"
 import {creditCardsApi} from "./creditCards/credit-cards-api"
+import {contactsApi} from "./contacts/contacts-api"
 
 export const rootReducer = combineReducers({
     ownerReducer,
@@ -11,8 +12,10 @@ export const rootReducer = combineReducers({
     storyBoardingReducer,
     [usersApi.reducerPath]: usersApi.reducer,
     [creditCardsApi.reducerPath]: creditCardsApi.reducer,
+    [contactsApi.reducerPath]: contactsApi.reducer,
 })
 export const rootApi = [
     usersApi.middleware,
     creditCardsApi.middleware,
+    contactsApi.middleware,
 ]

@@ -8,8 +8,8 @@ export const creditCardsApi = createApi({
     tagTypes: ['CreditCards'],
     baseQuery: fetchBaseQuery({baseUrl: PATH}),
     endpoints: (build) => ({
-        getAllCreditCards: build.query<ICreditCard[], void>({
-            query: () => '/cards',
+        getMyCreditCards: build.query<ICreditCard[], string>({
+            query: (id) => '/cards/my-cards/'+id,
             providesTags: (result) => result ?
                 [
                     ...result.map(i => ({type: 'CreditCards' as const, id: i._id})),
@@ -38,4 +38,4 @@ export const creditCardsApi = createApi({
     }),
 })
 
-export const {useGetAllCreditCardsQuery, useCreateCreditCardMutation} = creditCardsApi
+export const {useGetMyCreditCardsQuery, useCreateCreditCardMutation} = creditCardsApi

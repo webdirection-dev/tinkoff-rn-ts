@@ -14,7 +14,7 @@ const ImportantList = () => {
             {
                 items.length ? (
                     <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-                        {items.map((i, index) => <ImportantItem key={i._id} item={i} index={index}/>)}
+                        {items.map((i, index) => <ImportantItem key={i.title} item={i} index={index}/>)}
                     </ScrollView>
                 ) : <Loading />
             }
