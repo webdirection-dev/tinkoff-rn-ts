@@ -51,38 +51,32 @@ router.get('/find/:id', async (req, res) => {
 //DELETE CARDS
 router.delete('/:id', async (req, res) => {
         try {
-            const card  = await CreditCard.findByIdAndDelete(req.params.id)
+            await CreditCard.findByIdAndDelete(req.params.id)
             res.status(200).json('Credit Card has been deleted.')
         } catch (err) { res.status(500).json(err) }
     }
 )
 
-//UPDATE USER
-// router.put(
-//     '/:id',
-//     verifyTokenAndAuthorisation, //middleware
-//     async (req, res) => {
-//         //закриптуем новый пароль с клиента если его хотят обновить
-//         if (req.body.password) {
-//             req.body.password = CryptoJS.AES.encrypt(req.body.password, process.env.CRYPTO_JS_SECRET).toString()
-//         }
-//
-//         try {
-//             const updatedUser = await User.findByIdAndUpdate(
-//                 req.params.id, //поиск по id
-//                 {$set: req.body}, //заменить найденное на req.body
-//                 {new: true}, //отправить клиенту обновленные данные
-//             )
-//
-//             const accessToken = jwt.sign(
-//                 {id: updatedUser._id, isAdmin: updatedUser.isAdmin},
-//                 process.env.JWT_SECRET,
-//                 {expiresIn: '3d'}
-//             )
-//
-//             res.status(201).json({...updatedUser._doc, accessToken})
-//         } catch (err) { res.status(500).json(err) }
-//     }
-// )
+//TRANSFER CARDS
+router.put(
+    '/transfer',
+    // verifyTokenAndAuthorisation, //middleware
+    async (req, res) => {
+        const {writeoff, writeon, amount} = req.body
+
+        try {
+            const successTransfer = await CreditCard.findOneAndUpdate(
+                {_id: writeoff, balance: {$gte: amount}},
+                {$inc: {balance: -amount}},
+                {new: true},
+            )
+
+            if (successTransfer) {
+                await CreditCard.findByIdAndUpdate( writeon, {$inc: {balance: amount}},  {new: true} )
+                res.status(201).json('The transfer was successful!')
+            } else res.status(405).json('Don`t have enough funds!')
+        } catch (err) { res.status(500).json(err) }
+    }
+)
 
 module.exports = router
