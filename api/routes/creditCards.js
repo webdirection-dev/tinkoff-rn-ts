@@ -66,13 +66,13 @@ router.put(
 
         try {
             const successTransfer = await CreditCard.findOneAndUpdate(
-                {_id: writeoff, balance: {$gte: amount}},
+                {cardNumber: writeoff, balance: {$gte: amount}},
                 {$inc: {balance: -amount}},
                 {new: true},
             )
 
             if (successTransfer) {
-                await CreditCard.findByIdAndUpdate( writeon, {$inc: {balance: amount}},  {new: true} )
+                await CreditCard.findOneAndUpdate({cardNumber: writeon}, {$inc: {balance: amount}},  {new: true} )
                 res.status(201).json('The transfer was successful!')
             } else res.status(405).json('Don`t have enough funds!')
         } catch (err) { res.status(500).json(err) }

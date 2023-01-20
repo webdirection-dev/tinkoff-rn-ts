@@ -36,3 +36,10 @@ export interface IContact {
     createdAt?: string;
     updatedAt?: string;
 }
+
+export interface IMessage {
+    _id: string;
+    createdAt?: Date;
+    updatedAt?: Date;
+    text: string;
+}

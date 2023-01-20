@@ -4,8 +4,9 @@ import {stylesMain} from "./style"
 
 interface IMain {children: ReactNode; isScrollView?: boolean}
 
-const Main: FC<IMain> = ({children, isScrollView = true}) => {
+const Main: FC<IMain> = ({children, isScrollView= true }) => {
     const {container} = stylesMain
+
     return(
         <SafeAreaView style={container}>
             { isScrollView ? <ScrollView>{children}</ScrollView> : children }

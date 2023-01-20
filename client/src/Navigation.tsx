@@ -8,8 +8,8 @@ import Home from "./screens/home/_index/Home"
 import Profile from "./screens/profile/Profile"
 import Payments from "./screens/payments/_index/Payments"
 import More from "./screens/more/More"
-import Services from "./screens/services/services"
-import Support from "./screens/support/Support"
+import Services from "./screens/services/_index/Services"
+import Support from "./screens/support/_index/Support"
 import Footer from "./layout/footer/Footer"
 import {useState} from "react";
 

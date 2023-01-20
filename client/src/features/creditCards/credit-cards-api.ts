@@ -27,15 +27,15 @@ export const creditCardsApi = createApi({
             invalidatesTags: [{ type: 'CreditCards', id: 'Credit Card LIST' }]
         }),
 
-        // updateUser: build.mutation<IUser, {id: string, token: string, credentials: TObjString}>({
-        //     query: ({id, token, credentials}) => ({
-        //         url: '/users/'+id,
-        //         method: 'PUT',
-        //         headers: {authorization: 'Bearer ' + token},
-        //         body: credentials,
-        //     })
-        // }),
+        makeTransfer: build.mutation<string, {writeoff: string, writeon: string, amount: number}>({
+            query: ({writeoff, writeon, amount}) => ({
+                url: '/cards/transfer',
+                method: 'PUT',
+                body: {writeoff, writeon, amount},
+            }),
+            invalidatesTags: [{ type: 'CreditCards', id: 'Credit Card LIST' }]
+        }),
     }),
 })
 
-export const {useGetMyCreditCardsQuery, useCreateCreditCardMutation} = creditCardsApi
+export const {useGetMyCreditCardsQuery, useCreateCreditCardMutation, useMakeTransferMutation} = creditCardsApi

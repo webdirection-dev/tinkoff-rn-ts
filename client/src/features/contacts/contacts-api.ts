@@ -8,8 +8,8 @@ export const contactsApi = createApi({
     tagTypes: ['Contacts'],
     baseQuery: fetchBaseQuery({baseUrl: PATH}),
     endpoints: (build) => ({
-        getAllContacts: build.query<IContact[], string>({
-            query: (username) => '/contacts/without/'+username,
+        getAllContacts: build.query<IContact[], void>({
+            query: () => '/contacts',
             providesTags: (result) => result ?
                 [
                     ...result.map(i => ({type: 'Contacts' as const, id: i._id})),

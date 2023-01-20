@@ -1,23 +1,13 @@
 import {FC} from "react"
-import {Text, Pressable, Alert} from "react-native"
+import {Text, Pressable} from "react-native"
 import Avatar from "../../../components/avatar/Avatar"
 import {IContact} from "../../../static/types/typesMongo"
+import {useContactItem} from "./use-contact-item"
 
-interface IContactItemProps {item: IContact, index: number}
+interface IContactItemProps {item: IContact, index: number, ownerCard: string}
 
-const ContactsItem:FC<IContactItemProps> = ({item: {username, cardNumber}, index}) => {
-    const handleTransfer = () => {
-        Alert.prompt(
-            'Sum transfer',
-            'Enter the transfer',
-            async (sum) => {
-                try {
-                    if (sum.match(/^\d+$/)) Alert.alert('SUCCESS!', `${sum} has been successfully transferred!`)
-                    else Alert.alert('ERROR!', 'Only numbers can be used. Please, try again.')
-                } catch (e: any) {Alert.alert('Error transfer', e)}
-            }
-        )
-    }
+const ContactsItem:FC<IContactItemProps> = ({item: {username, cardNumber}, index, ownerCard}) => {
+    const {handleTransfer} = useContactItem(cardNumber, ownerCard)
 
     return(
         <Pressable
