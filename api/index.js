@@ -13,8 +13,10 @@ app.use(cors())
 
 const authRoot = require('./routes/auth')
 const userRoot = require('./routes/users')
-const creditCards = require('./routes/creditCards')
-const contacts = require('./routes/contacts')
+const creditCardsRoot = require('./routes/creditCards')
+const contactsRoot = require('./routes/contacts')
+const conversationsRoot = require('./routes/conversations')
+const messagesRoot = require('./routes/messages')
 
 // console.log('test')
 mongoose
@@ -25,7 +27,9 @@ mongoose
 app.use(express.json())
 app.use('/api/auth', authRoot)
 app.use('/api/users', userRoot)
-app.use('/api/cards', creditCards)
-app.use('/api/contacts', contacts)
+app.use('/api/cards', creditCardsRoot)
+app.use('/api/contacts', contactsRoot)
+app.use('/api/conversations', conversationsRoot)
+app.use('/api/messages', messagesRoot)
 
 app.listen(process.env.PORT || 8008, () => {console.log('Backend Server Is Running!')})
