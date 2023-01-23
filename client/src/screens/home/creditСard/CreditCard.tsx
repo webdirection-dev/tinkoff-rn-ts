@@ -3,6 +3,7 @@ import {Text, View} from "react-native"
 import {FontAwesome} from '@expo/vector-icons'
 import {styles} from './style'
 import {ICreditCard} from "../../../static/types/typesMongo"
+import {currencyFormat} from "../../../static/helpers"
 
 const CreditCard: FC<{item: ICreditCard}> = ({item: {_id, currency, balance, cardName, cardNumber}}) => {
     const {currOut, currIn, balanceWrapper, mini} = styles
@@ -15,11 +16,7 @@ const CreditCard: FC<{item: ICreditCard}> = ({item: {_id, currency, balance, car
 
             <View style={balanceWrapper}>
                 <Text style={{fontSize: 15}}>{cardName}</Text>
-                <Text style={{fontSize: 15, fontWeight: 'bold', marginTop: 2}}>
-                    {
-                        Intl.NumberFormat(undefined, {currency, style: 'currency'}).format(balance)
-                    }
-                </Text>
+                <Text style={{fontSize: 15, fontWeight: 'bold', marginTop: 2}}>{currencyFormat(currency, balance)}</Text>
             </View>
 
             <View style={{...mini, backgroundColor: (cardName === 'Tinkoff Black' ? 'black' : '#42A5F5')}}>

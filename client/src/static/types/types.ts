@@ -14,6 +14,7 @@ export type TypeRootStackParamList = {
     Profile: undefined;
     Services: undefined;
     Support: undefined;
+    Chat: any;
     Payments: undefined;
     More: undefined;
 }

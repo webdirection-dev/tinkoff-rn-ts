@@ -24,7 +24,7 @@ const NavItem:FC<INavItemProps> = ({item, navigate, page, setPage}) => {
             }}
         >
             <AntDesign style={{fontSize: 25, color: (item.title === page ? blue500 : gray500)}} name={item.iconName} />
-            <Text style={{fontSize: 12, color: (item.title === page ? blue500 : gray500), marginTop: 1}}>{item.title}</Text>
+            <Text style={{fontSize: 12, color: (item.title === page ? blue500 : gray500), marginTop: 1}}>{item.title === 'Support' ? 'Chat' : item.title}</Text>
         </Pressable>
     )
 }

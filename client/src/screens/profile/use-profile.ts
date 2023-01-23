@@ -1,4 +1,3 @@
-import {Alert} from "react-native"
 import {useEffect, useState} from "react"
 import {useNavigation} from "@react-navigation/native"
 import {useUpdateUserMutation} from "../../features/users/users-api"
@@ -7,17 +6,19 @@ import {cleanOwner, setOwner, selectOwnerInfo} from "../../features/auth/auth-sl
 import {gray300} from "../../static/styles/var"
 
 import {defaultAlert} from "../../static/helpers"
+import {IUser} from "../../static/types/typesMongo"
 
 export const useProfile = () => {
     const dispatch = useAppDispatch()
-    const {owner} = useAppSelector(store => selectOwnerInfo(store))
+    const {owner: ownerState} = useAppSelector(store => selectOwnerInfo(store))
     const navigate = useNavigation()
-    const {owner: {accessToken, _id}} = navigate.getState().routes[1].params as never
-    const [changeName, setChangeName] = useState(owner.username)
+    const props = navigate.getState().routes.find(i => i.name === 'Profile').params as {owner: IUser}
+    const {accessToken, _id} = props.owner
+    const [changeName, setChangeName] = useState(ownerState.username)
     const [updateUser, {isSuccess, error: updateError, isLoading, data: updateData}] = useUpdateUserMutation()
 
     const handleUpdate = async () => {
-        if (changeName && changeName !== owner.username) {
+        if (changeName && changeName !== ownerState.username) {
             await updateUser({id: _id, token: accessToken, credentials: {username: changeName}}).unwrap()
         }
     }
@@ -30,8 +31,8 @@ export const useProfile = () => {
     }, [updateData])
 
     useEffect(() => {
-        setChangeName(owner.username)
-    }, [owner.username])
+        setChangeName(ownerState.username)
+    }, [ownerState.username])
 
     //ALERTING SUCCESS
     useEffect(() => {

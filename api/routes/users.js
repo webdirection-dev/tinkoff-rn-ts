@@ -47,7 +47,6 @@ router.delete(
 //GET USER
 router.get(
     '/find/:id',
-    verifyTokenAndAuthorisation, //middleware
     async (req, res) => {
         try {
             const user  = await User.findById(req.params.id)

@@ -1,6 +1,6 @@
 import {useAppSelector} from "../../../store"
 import {selectOwnerInfo} from "../../../features/auth/auth-slice"
-import {useGetAllContactsQuery} from "../../../features/contacts/contacts-api"
+import {useGetAllContactsQuery} from "../../../features/contacts-api"
 import {useEffect, useState} from "react";
 
 export const useContactsList = () => {

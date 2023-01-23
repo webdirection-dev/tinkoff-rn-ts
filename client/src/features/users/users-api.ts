@@ -13,17 +13,21 @@ export const usersApi = createApi({
     tagTypes: ['Users'],
     baseQuery: fetchBaseQuery({baseUrl: PATH}),
     endpoints: (build) => ({
-        loginUser: build.mutation<IUser, TObjString>({
-            query: (credentials) => ({
-                url: '/auth/login',
-                method: 'POST',
-                body: credentials,
-            })
+        getUsersById: build.query<IUser, string>({
+            query: (id) => '/users/find/'+id,
         }),
 
         createUser: build.mutation<IUser, TObjString>({
             query: (credentials) => ({
                 url: '/auth/register',
+                method: 'POST',
+                body: credentials,
+            })
+        }),
+
+        loginUser: build.mutation<IUser, TObjString>({
+            query: (credentials) => ({
+                url: '/auth/login',
                 method: 'POST',
                 body: credentials,
             })
@@ -40,4 +44,4 @@ export const usersApi = createApi({
     }),
 })
 
-export const {useLoginUserMutation, useCreateUserMutation, useUpdateUserMutation} = usersApi
+export const {useLoginUserMutation, useCreateUserMutation, useUpdateUserMutation, useGetUsersByIdQuery} = usersApi

@@ -1,5 +1,5 @@
 import {Alert} from "react-native"
-import {useMakeTransferMutation} from "../../../features/creditCards/credit-cards-api"
+import {useMakeTransferMutation} from "../../../features/credit-cards-api"
 import {useEffect} from "react"
 
 export const useContactItem = (cardNumber, ownerCard) => {

@@ -1,23 +1,28 @@
-import {ScrollView, View} from "react-native"
+import {ScrollView, View, Text} from "react-native"
 import {styles} from "./style"
 import Loading from "../../../components/loading/Loading"
 import MessageItem from "../messgeItem/MessageItem"
 
 import {useMessagesList} from "./useMessagesList"
+import {FC} from "react";
+import {IMessage} from "../../../static/types/typesMongo";
 
-const MessagesList = () => {
-    const {container} = styles
-    const {ownerId, messages} = useMessagesList()
+const MessagesList:FC<{messages: IMessage[], success: any}> = ({messages, success}) => {
+    const {container, noConversation} = styles
+    const {ownerId} = useMessagesList()
 
     return(
         <View style={container}>
             {
-                messages && messages.length > 0 ? (
+                success.status === 'fulfilled' && (
                     <ScrollView showsVerticalScrollIndicator={false}>
                         {messages.map(i => <MessageItem key={i._id} item={i} ownerId={ownerId}/>)}
                     </ScrollView>
-                ) : <Loading />
+                )
             }
+
+            {success.noMessage && <Text style={noConversation}>Please write us in a chat</Text>}
+            {success.status !== 'fulfilled' && !success.noMessage && <Loading />}
         </View>
     )
 }

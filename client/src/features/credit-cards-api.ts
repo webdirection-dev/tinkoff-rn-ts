@@ -1,5 +1,5 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react"
-import {ICreditCard} from "../../static/types/typesMongo"
+import {ICreditCard} from "../static/types/typesMongo"
 
 const PATH = process.env.REACT_APP_API_URL
 

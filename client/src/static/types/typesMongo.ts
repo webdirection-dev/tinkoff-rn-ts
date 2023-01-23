@@ -37,9 +37,18 @@ export interface IContact {
     updatedAt?: string;
 }
 
+export interface IConversation {
+    _id: string;
+    createdAt?: Date;
+    updatedAt?: Date;
+    members: string[]
+}
+
 export interface IMessage {
     _id: string;
     createdAt?: Date;
     updatedAt?: Date;
+    conversationId: string,
+    sender: string,
     text: string;
 }

@@ -3,7 +3,6 @@ import {wrapper} from "../../../static/styles/mixins"
 
 export const styles = StyleSheet.create({
     container: {
-        ...wrapper,
-        height: '83%',
+        ...wrapper
     },
 })

@@ -10,6 +10,7 @@ import Payments from "./screens/payments/_index/Payments"
 import More from "./screens/more/More"
 import Services from "./screens/services/_index/Services"
 import Support from "./screens/support/_index/Support"
+import Chat from "./screens/support/chat/Chat"
 import Footer from "./layout/footer/Footer"
 import {useState} from "react";
 
@@ -17,7 +18,7 @@ const Stack = createNativeStackNavigator()
 
 const Navigation = () => {
     const navRef = useNavigationContainerRef()
-    const {auth} = useAppSelector(store => selectOwnerInfo(store))
+    const {auth, owner} = useAppSelector(store => selectOwnerInfo(store))
     const [page, setPage] = useState('Home')
 
     return(
@@ -27,14 +28,18 @@ const Navigation = () => {
                     {
                         auth ?
                             <>
-                                <Stack.Screen name='Home' component={Home}/>
-                                <Stack.Screen name='Profile' component={Profile}/>
-                                <Stack.Screen name='Payments' component={Payments}/>
-                                <Stack.Screen name='Services' component={Services}/>
-                                <Stack.Screen name='Support' component={Support}/>
-                                <Stack.Screen name='More' component={More}/>
+                                <Stack.Screen name='Home' component={Home} />
+                                <Stack.Screen name='Profile' component={Profile} />
+                                <Stack.Screen name='Payments' component={Payments} />
+                                <Stack.Screen name='Services' component={Services} />
+                                {/*<Stack.Screen name='Support' component={Support} />*/}
+                                <Stack.Screen name="Support">
+                                    {() => <Support owner={owner}/>}
+                                </Stack.Screen>
+                                <Stack.Screen name='Chat' component={Chat} />
+                                <Stack.Screen name='More' component={More} />
                             </>
-                            : <Stack.Screen name='Auth' component={Auth}/>
+                            : <Stack.Screen name='Auth' component={Auth} />
                     }
                 </Stack.Navigator>
             </NavigationContainer>

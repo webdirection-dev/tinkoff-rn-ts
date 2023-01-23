@@ -1,5 +1,5 @@
 import {configureStore} from "@reduxjs/toolkit"
-import {rootReducer, rootApi} from "./features"
+import {rootReducer, rootApi} from "./features/_index"
 import {useDispatch, useSelector, TypedUseSelectorHook} from "react-redux"
 
 

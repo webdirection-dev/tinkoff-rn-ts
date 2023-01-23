@@ -1,6 +1,8 @@
 import {Alert} from "react-native"
 import {dbGradient} from "../db/dbGradient"
 
+const locale = navigator.language
+
 //RANDOM NUMBERS
 export const getRandomCardNumber = () => {
     let out = ''
@@ -33,14 +35,17 @@ export const getRandomGradient = () => {
 
 //DATE
 export const dateFormat = (date) => {
-    const locale = navigator.language
     const dateOptions: Intl.DateTimeFormatOptions = {
-        // weekday: 'short',
+        weekday: 'short',
         // hour12: false,
         hour: 'numeric',
         minute: 'numeric',
     }
     const CurrentDate = new Intl.DateTimeFormat(locale, dateOptions)
-
-    return CurrentDate.format(date)
+    return CurrentDate.format(Date.parse(date))
+}
+export const currencyFormat = (currency, balance) => {
+    const currencyOptions: Intl.NumberFormatOptions = {currency, style: 'currency'}
+    const OutCurrency = new Intl.NumberFormat(locale, currencyOptions)
+    return OutCurrency.format(balance)
 }

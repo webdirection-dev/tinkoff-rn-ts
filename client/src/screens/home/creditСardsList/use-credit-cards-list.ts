@@ -1,7 +1,7 @@
 import {useEffect} from "react"
 import {useAppSelector} from "../../../store"
 import {selectOwnerInfo} from "../../../features/auth/auth-slice"
-import {useGetMyCreditCardsQuery, useCreateCreditCardMutation} from "../../../features/creditCards/credit-cards-api"
+import {useGetMyCreditCardsQuery, useCreateCreditCardMutation} from "../../../features/credit-cards-api"
 
 import {dbAlert} from "../../../static/db/dbAlerting"
 import {getRandomCardNumber, promiseChoosingCreditCard, defaultAlert} from "../../../static/helpers"

@@ -1,21 +1,11 @@
-import {ScrollView, Text, View} from "react-native"
-import {styles} from "./style"
-import Main from "../../../layout/main/Main"
-import Header from "../header/Header"
-import MessagesList from "../messgesList/MessagesList"
-import Field from "../field/Field"
+import {FC} from "react"
+import ChatList from "../chatList/ChatList"
+import {IUser} from "../../../static/types/typesMongo"
+import Chat from "../chat/Chat";
 
-const Support = () => {
-    const {container} = styles
-
-    return(
-        <Main isScrollView={false}>
-            <Header />
-            <ScrollView style={container}>
-                <MessagesList />
-            </ScrollView>
-            <Field />
-        </Main>
-    )
-}
+const Support:FC<{owner: IUser}> = ({owner: {_id, isAdmin}}) => (
+    <>
+        {isAdmin ? <ChatList _id={_id}/> : <Chat />}
+    </>
+)
 export default Support

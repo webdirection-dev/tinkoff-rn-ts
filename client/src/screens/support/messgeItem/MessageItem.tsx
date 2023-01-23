@@ -5,9 +5,9 @@ import {IMessage} from "../../../static/types/typesMongo"
 import {blue500, gray300, gray800} from "../../../static/styles/var"
 import {dateFormat} from "../../../static/helpers"
 
-const MessageItem:FC<{item: IMessage, ownerId: string}> = ({item: {_id, text, createdAt}, ownerId}) => {
+const MessageItem:FC<{item: IMessage, ownerId: string}> = ({item: {sender, text, createdAt}, ownerId}) => {
     const {container, time} = styles
-    const isMsgByOwner = _id === ownerId
+    const isMsgByOwner = sender === ownerId
 
     return(
         <View style={{...container, backgroundColor: isMsgByOwner ? blue500 : gray300, alignSelf: isMsgByOwner ? 'flex-end' : 'flex-start'}}>

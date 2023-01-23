@@ -19,7 +19,8 @@ export const styles = StyleSheet.create({
     title: {
         fontSize: 18,
         color: gray800,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        textTransform: "capitalize",
     },
     subtitle: {
         fontSize: 13,
