@@ -18,15 +18,15 @@ export const messagesApi = createApi({
                 [{ type: 'Messages', id: 'Messages LIST' }],
         }),
 
-        // createContacts: build.mutation<IContact, IContact>({
-        //     query: (newContact) => ({
-        //         url: '/contacts',
-        //         method: 'POST',
-        //         body: newContact,
-        //     }),
-        //     invalidatesTags: [{ type: 'Contacts', id: 'Contacts LIST' }]
-        // }),
+        createMessage: build.mutation<IMessage, IMessage>({
+            query: (newMessage) => ({
+                url: '/messages',
+                method: 'POST',
+                body: newMessage,
+            }),
+            invalidatesTags: [{ type: 'Messages', id: 'Messages LIST' }]
+        }),
     }),
 })
 
-export const {useGetMessagesQuery} = messagesApi
+export const {useGetMessagesQuery, useCreateMessageMutation} = messagesApi

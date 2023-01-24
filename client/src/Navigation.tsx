@@ -44,7 +44,7 @@ const Navigation = () => {
                 </Stack.Navigator>
             </NavigationContainer>
 
-            {auth && <Footer navigate={navRef.navigate} page={page} setPage={setPage}/>}
+            {auth && <Footer navigate={navRef.navigate} page={page} setPage={setPage} support={owner.username==='support'}/>}
         </>
     )
 }

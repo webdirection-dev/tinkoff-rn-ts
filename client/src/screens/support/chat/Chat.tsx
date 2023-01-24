@@ -8,7 +8,7 @@ import {useChat} from "./use-chat"
 
 const Chat = () => {
     const {container} = styles
-    const {senderName, messages, success} = useChat()
+    const {senderName, messages, success, sending} = useChat()
 
     return(
         <Main isScrollView={false}>
@@ -16,7 +16,7 @@ const Chat = () => {
             <ScrollView style={container}>
                 <MessagesList messages={messages} success={success}/>
             </ScrollView>
-            <Field />
+            <Field sending={sending}/>
         </Main>
     )
 }

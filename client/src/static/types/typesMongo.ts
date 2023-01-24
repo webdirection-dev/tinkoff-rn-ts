@@ -46,9 +46,9 @@ export interface IConversation {
 
 export interface IMessage {
     _id: string;
-    createdAt?: Date;
-    updatedAt?: Date;
     conversationId: string,
     sender: string,
     text: string;
+    createdAt?: Date;
+    updatedAt?: Date;
 }

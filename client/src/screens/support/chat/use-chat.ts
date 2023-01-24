@@ -29,5 +29,9 @@ export const useChat = () => {
         senderName: sender ? sender.username : 'support',
         messages,
         success: {status, noMessage},
+        sending: {
+            conversationId: conversationId ? conversationId : conversation.length ? conversation : '',
+            sender: owner._id
+        }
     }
 }

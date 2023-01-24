@@ -9,13 +9,14 @@ interface IFooterProps {
     navigate: (screenName: keyof TypeRootStackParamList) => void;
     page: string;
     setPage: Dispatch<SetStateAction<string>>;
+    support: boolean;
 }
 
-const Footer:FC<IFooterProps> = ({navigate, page, setPage}) => {
+const Footer:FC<IFooterProps> = ({navigate, page, setPage, support}) => {
     const {container} = styles
     return(
         <View style={container}>
-            {dbMenuNavigation.map(i => <NavItem key={i.title} item={i} navigate={navigate} page={page} setPage={setPage}/>)}
+            {dbMenuNavigation.map(i => <NavItem key={i.title} item={i} navigate={navigate} page={page} setPage={setPage} support={support}/>)}
         </View>
     )
 }

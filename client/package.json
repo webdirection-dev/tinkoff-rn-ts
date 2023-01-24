@@ -24,7 +24,8 @@
     "react-native-screens": "~3.19.0",
     "react-native-stories-view": "^1.0.9",
     "react-native-web": "~0.18.10",
-    "react-redux": "^8.0.5"
+    "react-redux": "^8.0.5",
+    "timeago.js": "^4.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
