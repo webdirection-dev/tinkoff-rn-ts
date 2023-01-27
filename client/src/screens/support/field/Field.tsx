@@ -21,7 +21,7 @@ const Field:FC<{sending: any}> = ({sending}) => {
                 autoCapitalize='none'
             />
 
-            <Pressable onPress={e => handleSendMessage(e) }>
+            <Pressable onPress={e => handleSendMessage(e)}>
                 <MaterialCommunityIcons name='send-circle-outline' size={42} style={{color: blue400, marginLeft: 10}}/>
             </Pressable>
         </View>

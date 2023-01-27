@@ -37,3 +37,10 @@ export interface IService {
     title: string;
     percent: string;
 }
+
+//rejectWithValue ERROR
+export interface IErrorFetch {
+    error: string;
+    originalStatus: string;
+    status: string;
+}

@@ -1,4 +1,4 @@
-import {ScrollView} from "react-native"
+import {ScrollView, View} from "react-native"
 import {styles} from "./style"
 import Main from "../../../layout/main/Main"
 import Header from "../header/Header"
@@ -10,12 +10,17 @@ const Chat = () => {
     const {container} = styles
     const {senderName, messages, success, sending} = useChat()
 
+    const testFC = (act) => {
+        console.log('testFC')
+    }
+
     return(
         <Main isScrollView={false}>
             <Header senderName={senderName}/>
-            <ScrollView style={container}>
-                <MessagesList messages={messages} success={success}/>
-            </ScrollView>
+            <View style={container}>
+                <MessagesList messages={messages} success={success} />
+            </View>
+
             <Field sending={sending}/>
         </Main>
     )

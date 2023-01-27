@@ -3,6 +3,7 @@ import {wrapper} from "../../../static/styles/mixins"
 
 export const styles = StyleSheet.create({
     container: {
-        ...wrapper
+        ...wrapper,
+        flex: 1
     },
 })
