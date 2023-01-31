@@ -1,4 +1,4 @@
-import {ScrollView, View} from "react-native"
+import {View} from "react-native"
 import {styles} from "./style"
 import Main from "../../../layout/main/Main"
 import Header from "../header/Header"
@@ -9,10 +9,6 @@ import {useChat} from "./use-chat"
 const Chat = () => {
     const {container} = styles
     const {senderName, messages, success, sending} = useChat()
-
-    const testFC = (act) => {
-        console.log('testFC')
-    }
 
     return(
         <Main isScrollView={false}>

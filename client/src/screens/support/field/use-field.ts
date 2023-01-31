@@ -1,6 +1,6 @@
 import {useState} from "react"
 import {useAppDispatch} from "../../../store"
-import {addMessage} from "../../../features/messages/messages-slice"
+import {createMessage} from "../../../features/messages/messages-slice"
 
 export const useField = (sending) => {
     const dispatch = useAppDispatch()
@@ -10,7 +10,7 @@ export const useField = (sending) => {
         e.preventDefault()
 
         if (text.length && sending.conversationId.length && sending.sender.length) {
-            dispatch(addMessage({...sending, text}))
+            dispatch(createMessage({...sending, text}))
             setText('')
         }
     }

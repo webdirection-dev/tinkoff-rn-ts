@@ -7,7 +7,7 @@ import Auth from './features/auth/Auth'
 import Home from "./screens/home/_index/Home"
 import Profile from "./screens/profile/Profile"
 import Payments from "./screens/payments/_index/Payments"
-import More from "./screens/more/More"
+import More from "./screens/more/_index/More"
 import Services from "./screens/services/_index/Services"
 import Support from "./screens/support/_index/Support"
 import Chat from "./screens/support/chat/Chat"

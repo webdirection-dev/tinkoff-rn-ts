@@ -38,6 +38,20 @@ export interface IService {
     percent: string;
 }
 
+//CURRENCIES
+export interface ICurrencies {
+    value: string | number;
+    name: 'USD' | 'EUR' | 'GBP';
+}
+
+//MORE
+export interface IMoreItem {
+    title: string;
+    description: string;
+    iconName: keyof typeof MaterialIcons.glyphMap;
+    link: string;
+}
+
 //rejectWithValue ERROR
 export interface IErrorFetch {
     error: string;
